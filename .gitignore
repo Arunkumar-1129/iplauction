@@ -1,0 +1,14 @@
+node_modules
+dist
+build
+.expo
+.expo-shared
+.turbo
+web/node_modules
+mobile/node_modules
+backend/node_modules
+**/.env
+**/.DS_Store
+
+
+
