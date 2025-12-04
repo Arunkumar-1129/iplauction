@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin Auction Panel</title>
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/theme.css" />
+  <link rel="stylesheet" href="styles/admin.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>Admin Auction Panel</h1>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="admin.html" aria-current="page">Admin</a>
+    </nav>
+  </header>
+  <main class="container">
+    <section class="card">
+      <h2>Settings</h2>
+      <div class="toolbar">
+        <label>Initial Purse (₹)
+          <input id="globalPurse" type="number" min="0" step="1000000" />
+        </label>
+        <button id="applyPurseBtn">Apply to New Teams</button>
+        <button id="saveStateBtn">Save</button>
+        <button id="loadStateBtn">Load</button>
+        <button id="exportStateBtn">Export JSON</button>
+        <input id="importFile" type="file" accept="application/json" />
+      </div>
+    </section>
+
+    <section class="grid-2">
+      <div class="card">
+        <h2>Teams & Purses</h2>
+        <div class="toolbar">
+          <button id="addTeamBtn">Add Team</button>
+        </div>
+        <table class="table" id="teamsTable">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Team</th>
+              <th>Total Purse</th>
+              <th>Remaining</th>
+              <th>Players</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h2>Players</h2>
+        <div class="toolbar">
+          <button id="addPlayerBtn">Add Player</button>
+          <input id="playerSearch" placeholder="Search players" />
+          <label class="badge">Import CSV
+            <input id="importPlayersCsv" type="file" accept=".csv" />
+          </label>
+        </div>
+        <table class="table" id="playersTable">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Photo</th>
+              <th>Name</th>
+              <th>Base Price</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Player Panel</h2>
+      <div class="player-panel">
+        <div class="player-photo" id="panelPhoto"></div>
+        <div class="player-info">
+          <div id="panelName" class="panel-name">—</div>
+          <div id="panelStats" class="panel-stats">—</div>
+          <div id="panelBase" class="panel-base">Base: ₹ —</div>
+          <div class="toolbar">
+            <button id="startBiddingBtn">Start Bidding</button>
+            <button id="finalizeSaleBtn" class="danger">Finalize Sale</button>
+            <button id="markUnsoldBtn">Mark Unsold</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="bid-controls">
+        <label>Team
+          <select id="bidTeam"></select>
+        </label>
+        <label>Bid Amount (₹)
+          <input id="bidAmount" type="number" min="0" step="100000" />
+        </label>
+        <button id="updateBidBtn">Update Bid</button>
+        <div class="highest"><strong>Highest Bid:</strong> <span id="highestBid">—</span></div>
+      </div>
+
+      <ul id="bidLog" class="log"></ul>
+    </section>
+  </main>
+  <div id="toast" class="toast" aria-live="polite" aria-atomic="true"></div>
+
+  <script type="module" src="js/store.js"></script>
+  <script type="module" src="js/persist.js"></script>
+  <script type="module" src="js/logic/bidding.js"></script>
+  <script type="module" src="js/pages/admin.js"></script>
+</body>
+</html>

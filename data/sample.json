@@ -1,0 +1,12 @@
+{
+  "teams": [
+    { "id": 1, "name": "Mumbai", "purse": 100000000 },
+    { "id": 2, "name": "Chennai", "purse": 100000000 },
+    { "id": 3, "name": "Bangalore", "purse": 100000000 }
+  ],
+  "players": [
+    { "id": 101, "name": "Player A", "photo": "", "basePrice": 2000000, "stats": "Top-order batsman", "status": "Available" },
+    { "id": 102, "name": "Player B", "photo": "", "basePrice": 1500000, "stats": "Death-overs bowler", "status": "Available" },
+    { "id": 103, "name": "Player C", "photo": "", "basePrice": 1800000, "stats": "All-rounder finisher", "status": "Available" }
+  ]
+}
